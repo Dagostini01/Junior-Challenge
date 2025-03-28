@@ -1,7 +1,8 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { UsersModule } from './users/users.module';
 import { ConfigModule } from '@nestjs/config';
+import { UsersModule } from './users/users.module';
+import { RingsModule } from './rings/rings.module';
 
 @Module({
   imports: [
@@ -10,9 +11,10 @@ import { ConfigModule } from '@nestjs/config';
       type: 'postgres',
       url: process.env.DATABASE_URL,
       autoLoadEntities: true,
-      synchronize: true, // apenas para dev
+      synchronize: true,
     }),
     UsersModule,
+    RingsModule,
   ],
 })
 export class AppModule {}
