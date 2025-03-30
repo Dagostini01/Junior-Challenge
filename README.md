@@ -2,11 +2,11 @@
 ![image](https://github.com/user-attachments/assets/9b5f6bfd-5633-4317-9fe7-39f5fab36687)
 ![image](https://github.com/user-attachments/assets/78ef2575-58eb-463e-baa2-868f550b0d7d)
 
-💻 Frontend
+### 💻 Frontend
 O frontend foi desenvolvido com React + Vite utilizando TypeScript e estilizado com Tailwind CSS e shadcn/ui, garantindo uma interface moderna, responsiva e acessível.
 
 
-🧱 Tecnologias principais
+### 🧱 Tecnologias principais
 React
 Vite
 TypeScript
@@ -15,16 +15,16 @@ shadcn/ui
 Axios
 React Router DOM
 
-✨ Funcionalidades
+### ✨ Funcionalidades
 Autenticação com JWT (Login)
 Integração com API backend para CRUD de Anéis
 Armazenamento seguro do token no localStorage
 Estilização consistente com shadcn/ui components (cards, inputs, botões)
 
-🔗 API Backend
+### 🔗 API Backend
 O backend da aplicação foi desenvolvido com NestJS, seguindo princípios SOLID, com estrutura organizada em módulos e separação clara de responsabilidades. A API possui autenticação com JWT, validação de dados, tratamento de erros e está integrada ao Supabase (PostgreSQL) como banco de dados.
 
-🚀 Documentação Swagger
+### 🚀 Documentação Swagger
 Você pode testar e visualizar os endpoints diretamente no Swagger rodando localmente:
 
 👉 http://localhost:3000/api
