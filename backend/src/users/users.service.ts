@@ -2,13 +2,19 @@ import { Injectable } from '@nestjs/common';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/uptade-user.dto';
 import { UserRepository } from './repositories/user.repository';
+import { User } from './entities/user.entity';
 
 @Injectable()
 export class UsersService {
-  constructor(private readonly userRepository: UserRepository) {}
+  constructor(private readonly userRepository: UserRepository) {} // 👈 Aqui está o que faltava
 
-  create(dto: CreateUserDto) {
-    return this.userRepository.create(dto);
+  async findByEmail(email: string): Promise<User | null> {
+    return this.userRepository.findByEmail(email);
+  }
+
+  async create(data: Partial<User>) {
+    const user = await this.userRepository.create(data);
+    return this.userRepository.save(user);
   }
 
   findAll() {

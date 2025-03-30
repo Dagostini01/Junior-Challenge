@@ -10,7 +10,7 @@ import { Forjador } from './enums/forjador.enum';
 export class RingsService {
   constructor(
     @InjectRepository(Ring)
-    private readonly ringRepository: Repository<Ring>
+    private readonly ringRepository: Repository<Ring>,
   ) {}
 
   async create(dto: CreateRingDto) {
@@ -21,7 +21,9 @@ export class RingsService {
       [Forjador.Sauron]: 1,
     };
 
-    const count = await this.ringRepository.count({ where: { forjadoPor: dto.forjadoPor } });
+    const count = await this.ringRepository.count({
+      where: { forjadoPor: dto.forjadoPor },
+    });
     const maxAllowed = limits[dto.forjadoPor];
 
     if (count >= maxAllowed) {
@@ -37,6 +39,11 @@ export class RingsService {
   }
 
   async update(id: string, dto: UpdateRingDto) {
+    console.log('DTO recebido:', dto);
+    if (Object.keys(dto).length === 0) {
+      throw new Error('Nenhum dado enviado para atualizar.');
+    }
+
     await this.ringRepository.update(id, dto);
     return this.ringRepository.findOne({ where: { id } });
   }
